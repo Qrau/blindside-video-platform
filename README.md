@@ -1,34 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+# nia-health-survey
+- **Description:**
+    React and NextJS full stack application for UI to browse videos with authentication permit.
+    tested on OS windows 10 & Node v16.14.0
+##
+- **Dependencies:**
 ```
+    "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "next": "12.2.5",
+    "next-auth": "^4.10.3",
+    "next-images": "^1.8.4",
+    "next-videos": "1.5.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "swiper": "^8.3.2"
+    },
+    "devDependencies": {
+    "eslint": "8.23.0",
+    "eslint-config-next": "12.2.5"
+    }
+```
+##
+- **Installation:**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    1. install with `yarn install`
+    2. In the project directory, you can run: `yarn start`
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+##
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- **Suggestions for improvments:**
+if i had more time, i would :
+> 1. move the states variables into a context api or redux to be able to share the states between pages and components.
+> 2. use global styles and themes with a third party package such as "styled-components" for the app.
+> 3. use React hooks and features like (memo, useMemo, useCallback) to improve the app performance.
+> 4. implement SSR and ISR  with nextjs for better perforamnce.
+> 5. create a mock up and sketch for all desired features.
+> 6. create CSS modules to avoid class clashes.
+> 7. improve the stlye of all the platform.
+##
+- **Screenshots:**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+##
+![01](https://user-images.githubusercontent.com/71081561/188182054-9621d98e-10d1-426b-bae9-eb59608b2a60.jpg)
+![02](https://user-images.githubusercontent.com/71081561/188182057-7320207b-7fcb-461d-9a1c-1f957a4919fb.jpg)
+![03](https://user-images.githubusercontent.com/71081561/188182058-a796f43d-cde7-47ca-a53d-f27f13d2efd5.jpg)
+![04](https://user-images.githubusercontent.com/71081561/188182060-3cf53861-fdf4-4436-8f7e-509719896785.jpg)
+![05](https://user-images.githubusercontent.com/71081561/188182061-5364ae0c-26cd-40e7-a068-99ac77b72e73.jpg)
+![06](https://user-images.githubusercontent.com/71081561/188182063-15570cf4-8634-40b3-b3bf-8f7f3c5680f4.jpg)
+![07](https://user-images.githubusercontent.com/71081561/188182065-59d3f0d0-16a9-47ea-81a4-cf595b1f0ecb.jpg)
+![08](https://user-images.githubusercontent.com/71081561/188182067-2e15c936-1e8b-4882-81a9-52336b3cf33d.jpg)
+![09](https://user-images.githubusercontent.com/71081561/188182069-4e483c23-0002-401f-8298-0be3f7f32e58.jpg)
+![10](https://user-images.githubusercontent.com/71081561/188182071-e3dbce03-105c-4405-8ba4-5573287176c4.jpg)
+![11](https://user-images.githubusercontent.com/71081561/188182074-b7703469-2ac3-4bf9-a836-0fb6dd8d7a8b.jpg)
+##
