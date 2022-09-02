@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { colors } from "..";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 export const Navbar = ({ logo, navElements }) => {
-  const location = useLocation();
+  const location = useRouter();
   const [currentPath, setCurrentPath] = useState(location.pathname);
 
   const foundPath = useMemo(
@@ -17,17 +18,17 @@ export const Navbar = ({ logo, navElements }) => {
 
   return (
     <nav style={styles.nav}>
-      <Link to="/">
-        <img style={styles.img} src={logo} alt="company-logo" />
+      <Link href="/">
+        <a>
+          <img style={styles.img} src={logo} alt="company-logo" />
+        </a>
       </Link>
       <div>
         {navElements.map((e, i) => (
-          <Link
-            style={currentPath === i ? styles.active : styles.Link}
-            key={i}
-            to={e.path}
-          >
-            {e.label}
+          <Link key={i} href={e.path}>
+            <a style={currentPath === i ? styles.active : styles.Link}>
+              {e.label}
+            </a>
           </Link>
         ))}
       </div>
@@ -40,22 +41,22 @@ const styles = {
     background: colors.black,
     display: "flex",
     justifyContent: "space-between",
-    padding: "1em"
+    padding: "1em",
   },
   img: {
     width: "5em",
     margin: "auto 0",
-    position: "relative"
+    position: "relative",
   },
   Link: {
     color: colors.white,
     textDecoration: "none",
-    padding: "0 1em"
+    padding: "0 1em",
   },
   active: {
     color: colors.black,
     background: colors.yellow,
     textDecoration: "none",
-    padding: " .5em"
-  }
+    padding: " .5em",
+  },
 };

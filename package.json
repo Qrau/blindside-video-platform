@@ -12,6 +12,7 @@
     "babel-preset-es2015": "^6.24.1",
     "next": "12.2.5",
     "next-auth": "^4.10.3",
+    "next-images": "^1.8.4",
     "next-videos": "1.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",

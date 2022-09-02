@@ -1,19 +1,13 @@
 import { signIn, useSession } from "next-auth/react";
 import { useState, useRef } from "react";
 import useMediaPlayer from "./../src/hooks/useMediaPlayer";
-import { VideoPlayerScreen } from "./../src/components/video-player-screen/index";
-import { SuggestionCard } from "./../src/components/suggestion-card/index";
-import { ToggleIcon } from "./../src/components/toggle-icon/index";
-import { DropdownOptions } from "./../src/components/dropdown-options/index";
-import { allVideosData } from "./../src/assets/index";
+import { VideoPlayerScreen } from "./../src/components/video-player-screen";
+import { SuggestionCard } from "./../src/components/suggestion-card";
+import { ToggleIcon } from "./../src/components/toggle-icon";
+import { DropdownOptions } from "./../src/components/dropdown-options";
+import { allVideosData } from "./../src/assets";
 
-export default function Home() {
-  const { data: session, loading } = useSession();
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  //
+export default function Account() {
   const videoElement = useRef(null);
   const [activeVideo, setActiveVideo] = useState(allVideosData[0]);
   const speedOptions = ["0.50", "1", "1.25", "2"];
@@ -25,6 +19,11 @@ export default function Home() {
     handleVideoSpeed,
     toggleMute,
   } = useMediaPlayer(videoElement);
+
+  const { data: session, loading } = useSession();
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div>

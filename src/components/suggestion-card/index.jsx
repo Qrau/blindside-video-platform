@@ -1,4 +1,3 @@
-import styles from "./styles.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Grid, Pagination } from "swiper";
 import "swiper/css";
@@ -29,7 +28,7 @@ export const SuggestionCard = ({ activeVideo, setActiveVideo, togglePlay }) => {
           (video) =>
             video.id !== activeVideo.id && (
               <SwiperSlide
-                className={styles.slide}
+                className="slide"
                 key={video.id}
                 onClick={() => setActiveSuggestion(video.id)}
               >

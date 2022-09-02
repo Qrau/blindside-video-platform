@@ -6,6 +6,7 @@ const isCorrectCredentials = (credentials) =>
   credentials.password === process.env.NEXTAUTH_PASSWORD;
 
 const options = {
+  secret: process.env.AUTH_SECRET,
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -18,7 +19,7 @@ const options = {
           const user = { id: 1, name: "Admin" };
           return Promise.resolve(user);
         } else {
-          return Promise.reject("/path/to/redirect");
+          return Promise.reject("/account");
         }
       },
     }),

@@ -5,20 +5,20 @@ const useMediaPlayer = (videoElement) => {
     isPlaying: false,
     progress: 0,
     speed: 1,
-    isMuted: false
+    isMuted: false,
   });
 
   const togglePlay = () => {
     setPlayerState({
       ...playerState,
-      isPlaying: !playerState.isPlaying
+      isPlaying: !playerState.isPlaying,
     });
   };
 
   useEffect(() => {
     playerState.isPlaying
-      ? videoElement.current.play()
-      : videoElement.current.pause();
+      ? videoElement?.current?.play()
+      : videoElement?.current?.pause();
   }, [playerState.isPlaying, videoElement]);
 
   const handleOnTimeUpdate = () => {
@@ -26,7 +26,7 @@ const useMediaPlayer = (videoElement) => {
       (videoElement.current.currentTime / videoElement.current.duration) * 100;
     setPlayerState({
       ...playerState,
-      progress
+      progress,
     });
   };
 
@@ -36,7 +36,7 @@ const useMediaPlayer = (videoElement) => {
       (videoElement.current.duration / 100) * manualChange;
     setPlayerState({
       ...playerState,
-      progress: manualChange
+      progress: manualChange,
     });
   };
 
@@ -45,21 +45,23 @@ const useMediaPlayer = (videoElement) => {
     videoElement.current.playbackRate = speed;
     setPlayerState({
       ...playerState,
-      speed
+      speed,
     });
   };
 
   const toggleMute = () => {
     setPlayerState({
       ...playerState,
-      isMuted: !playerState.isMuted
+      isMuted: !playerState.isMuted,
     });
   };
 
   useEffect(() => {
-    playerState.isMuted
-      ? (videoElement.current.muted = true)
-      : (videoElement.current.muted = false);
+    if (videoElement?.current?.muted) {
+      playerState.isMuted
+        ? (videoElement.current.muted = true)
+        : (videoElement.current.muted = false);
+    }
   }, [playerState.isMuted, videoElement]);
 
   return {
@@ -68,7 +70,7 @@ const useMediaPlayer = (videoElement) => {
     handleOnTimeUpdate,
     handleVideoProgress,
     handleVideoSpeed,
-    toggleMute
+    toggleMute,
   };
 };
 
