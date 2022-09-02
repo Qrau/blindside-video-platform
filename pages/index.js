@@ -10,6 +10,9 @@ import { allVideosData } from "./../src/assets";
 export default function Account() {
   const videoElement = useRef(null);
   const [activeVideo, setActiveVideo] = useState(allVideosData[0]);
+  const [comment, setComment] = useState({});
+  const [comments, setComments] = useState([]);
+  const [commentVisible, setCommentVisible] = useState(false);
   const speedOptions = ["0.50", "1", "1.25", "2"];
   const {
     playerState,
@@ -29,6 +32,10 @@ export default function Account() {
     <div>
       {session ? (
         <div className="container">
+          <h4>
+            {!playerState.isPlaying && "now playing :" + activeVideo.title}
+          </h4>
+
           <VideoPlayerScreen
             poster={activeVideo.poster}
             video={activeVideo.file}
@@ -69,6 +76,55 @@ export default function Account() {
               />
             </div>
           </VideoPlayerScreen>
+          <div className="toggle-container">
+            <label class="switch">
+              <input
+                class="switch-input"
+                type="checkbox"
+                onChange={() => setCommentVisible((prevState) => !prevState)}
+              />
+              <span class="switch-label" data-on="On" data-off="Off"></span>
+              <span class="switch-handle"></span>
+            </label>
+            <p>toggle comments</p>
+          </div>
+          {commentVisible && (
+            <div className="comments">
+              {comments.map(({ id, value, date, username }) => (
+                <div className="comments-wrapper" key={id}>
+                  <p>{value}</p>
+                  <div className="commenter-wrapper">
+                    <ul>{username}</ul>
+                    <ul>
+                      commented on : <time>{date}</time>
+                    </ul>
+                  </div>
+                </div>
+              ))}
+              <div className="comments-submit">
+                <textarea
+                  placeholder="place your comment here"
+                  onChange={(e) =>
+                    setComment((prevState) => ({
+                      ...prevState,
+                      id: +new Date(),
+                      value: e.target.value,
+                      date: new Date().toLocaleString(),
+                      username: "testuser123",
+                      video_id: activeVideo.id,
+                    }))
+                  }
+                />
+                <button
+                  onClick={() =>
+                    setComments((prevState) => [...prevState, comment])
+                  }
+                >
+                  comment
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       ) : (
         <p>
