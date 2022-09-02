@@ -1,4 +1,4 @@
-# nia-health-survey
+# blindside-video-platform
 - **Description:**
     React and NextJS full stack application for UI to browse videos with authentication permit.
     tested on OS windows 10 & Node v16.14.0
@@ -37,6 +37,7 @@ if i had more time, i would :
 > 5. create a mock up and sketch for all desired features.
 > 6. create CSS modules to avoid class clashes.
 > 7. improve the stlye of all the platform.
+> 8. break down the structure into multiple components for reuseablitly. 
 ##
 - **Screenshots:**
 
